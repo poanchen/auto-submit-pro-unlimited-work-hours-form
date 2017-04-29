@@ -8,16 +8,19 @@ if (casper.cli.get('g')) {
 
 // dev mode to broadcast the console.log error message
 casper.on('remote.message', function(msg) {
-  this.echo('remote message caught: ' + msg);
+  this.echo("remote message caught: " + msg);
 });
 
-var username;
-var password;
+var username, password, defaultWorkHours = true;
 
 if (casper.cli.has(0)) {
   username = casper.cli.get(0);
   if (casper.cli.has(1)) {
     password = casper.cli.get(1);
+    if (casper.cli.has(2)) {
+      // seems like user would like to have customized work hours
+      defaultWorkHours = false;
+    }
   } else {
     casper.echo("No password passed, aborting...").exit();
   }
@@ -25,9 +28,7 @@ if (casper.cli.has(0)) {
   casper.echo("No username passed, aborting...").exit();
 }
 
-var proUnlimitedLoginPageUrl = "https://prowand.pro-unlimited.com/login.html";
-
-casper.start(proUnlimitedLoginPageUrl);
+casper.start("https://prowand.pro-unlimited.com/login.html");
 
 // fill out the login form
 casper.waitForSelector('form[method="post"]', function() {
@@ -65,32 +66,41 @@ casper.waitForSelector('select[id="dateRangeString"]', function() {
 
 casper.then(function() {
   this.waitForUrl(/cntrl_time_create_edit_hourly-4\.html/, function() {
-    // this.evaluate(function() {
-    //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.startHourM"]').selectedIndex = 8;
-    //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.startMinute"]').selectedIndex = 45;
-    //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.startMeridiem"]').selectedIndex = 1;
-    //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.endHourM"]').selectedIndex = 4;
-    //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.endMinute"]').selectedIndex = 45;
-    //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.endMeridiem"]').selectedIndex = 2;
-    //   document.querySelector('input[id="billingDetailItems4.noBreakTaken1"]').checked = true;
-    // });
-    this.fillSelectors('form[method="post"]', {
-      'select[id="billingDetailItems4.billingTimeSpans0.startHourM"]': '8',
-      'select[id="billingDetailItems4.billingTimeSpans0.startMinute"]': '45',
-      'select[id="billingDetailItems4.billingTimeSpans0.startMeridiem"]': '0',
-      'select[id="billingDetailItems4.billingTimeSpans0.endHourM"]': '4',
-      'select[id="billingDetailItems4.billingTimeSpans0.endMinute"]': '45',
-      'select[id="billingDetailItems4.billingTimeSpans0.endMeridiem"]': '1',
-      'input[id="billingDetailItems4.noBreakTaken1"]': true
-    }, false);
+    if (defaultWorkHours) {
+      var workHours = {};
+      for (var i = 0; i < 5; i++) {
+        workHours['select[id="billingDetailItems' + i + '.billingTimeSpans0.startHourM"]'] = '8';
+        workHours['select[id="billingDetailItems' + i + '.billingTimeSpans0.startMinute"]'] = '45';
+        workHours['select[id="billingDetailItems' + i + '.billingTimeSpans0.startMeridiem"]'] = '0';
+        workHours['select[id="billingDetailItems' + i + '.billingTimeSpans0.endHourM"]'] = '4';
+        workHours['select[id="billingDetailItems' + i + '.billingTimeSpans0.endMinute"]'] = '45';
+        workHours['select[id="billingDetailItems' + i + '.billingTimeSpans0.endMeridiem"]'] = '1';
+        workHours['input[id="billingDetailItems' + i + '.noBreakTaken1"]'] = true;
+      }
+      // fill out the edit work hours form
+      this.fillSelectors('form[method="post"]', workHours, false);
+    } else {
+      // this is for customized work hours
+      // this.evaluate(function() {
+      //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.startHourM"]').selectedIndex = 8;
+      //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.startMinute"]').selectedIndex = 45;
+      //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.startMeridiem"]').selectedIndex = 1;
+      //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.endHourM"]').selectedIndex = 4;
+      //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.endMinute"]').selectedIndex = 45;
+      //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.endMeridiem"]').selectedIndex = 2;
+      //   document.querySelector('input[id="billingDetailItems4.noBreakTaken1"]').checked = true;
+      // });
+    }
+
     // submit the edit work hours form
     this.evaluate(function() {
       document.querySelectorAll('input.gray-button')[1].click();
     });
-    // this is not the best way of doing it
+
+    // take a screenshot of the edit work hours submitted form
     this.waitForUrl(/\?\_page=0\&\_target2/, function() {
       this.viewport(1000, 1080);
-      this.capture('./screenshot.png', {top: 0,left: 0,width: 1000, height: 2000});
+      this.capture('./screenshot_' + new Date().getTime() + '.png', {top: 0,left: 0,width: 1000, height: 2000});
     });
   });
 });
