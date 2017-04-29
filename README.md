@@ -21,4 +21,4 @@ casperjs script.js yourUsername yourPassword --g
 ```
 
 ## Note
-In default, work hours will be set to start from 8:45AM to 4:45PM with no lunch break for everyday except Saturday and Sunday.
+In default, work hours will be set to start from 8:45AM to 4:45PM with no lunch break for everyday except Saturday and Sunday. In addition, once the script completed, a screenshot of the result will be saved along with the script.
