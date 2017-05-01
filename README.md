@@ -2,7 +2,7 @@
 Custom script to automatically submit the pro-unlimited work hours form.
 
 ## Why is this useful?
-Filling out the work hours form can be a pain in the ass. A way to automate this would be really nice. This script will do all the hard work for us.
+Filling out the work hours form can be a pain in the ass. A way to automate this would be really helpful. This script will do all the hard work for us.
 
 ## Installation
 
