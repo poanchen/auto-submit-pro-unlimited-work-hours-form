@@ -14,7 +14,8 @@ def buildEmail():
 
   body_of_email = """
     Dear %s,<br><br>
-    Please head over to <a href="/path/to/log/and/screenshot" target="_blank">here</a> to see your Pro-unlimited weekly work hours report.<br><br>
+    Please head over to <a href="/path/to/log/and/screenshot" target="_blank">here</a> to see your Pro-unlimited weekly work 
+    hours report.<br><br>
     This message was intended to sent to %s.
   """ % (receiver_name, receiver_email)
 
