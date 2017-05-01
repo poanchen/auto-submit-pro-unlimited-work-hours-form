@@ -1,7 +1,7 @@
 import smtplib
 
 sender_gmail = 'sender_gmail'
-sender_email_password = 'sender_email_password'
+sender_gmail_password = 'sender_gmail_password'
 receiver_email = 'receiver_email'
 receiver_name = 'receiver_name'
 
@@ -27,7 +27,7 @@ if __name__ == "__main__":
   try:
     server_ssl = smtplib.SMTP_SSL('smtp.gmail.com', 465)
     # server_ssl.set_debuglevel(1)
-    server_ssl.login(sender_gmail, sender_email_password)
+    server_ssl.login(sender_gmail, sender_gmail_password)
 
     server_ssl.sendmail(sender_gmail, receiver_email, buildEmail())
     server_ssl.quit()
