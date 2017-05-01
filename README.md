@@ -29,7 +29,7 @@ casperjs script.js username password --g
 ```sh
 # Runs `script.js` on every friday at 3:00PM and send an email to the user.
 0 15 * * 5 sudo casperjs /path/to/script.js username password --g > 
-/path/to/auto-submit-pro-unlimited-work-hours-form.log; python sendEmail.py >> 
+/path/to/auto-submit-pro-unlimited-work-hours-form.log; python /path/to/sendEmail.py >> 
 /path/to/auto-submit-pro-unlimited-work-hours-form.log
 ```
 
