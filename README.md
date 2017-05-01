@@ -2,7 +2,7 @@
 Custom script to automatically submit the pro-unlimited work hours form.
 
 ## Why is this useful?
-Filling the work hours form can be a pain in the ass. A way to automate this would be really nice. This script will do all the hard work for us.
+Filling out the work hours form can be a pain in the ass. A way to automate this would be really nice. This script will do all the hard work for us.
 
 ## Installation
 
@@ -26,3 +26,7 @@ casperjs script.js yourUsername yourPassword --g
 
 ## Note
 In default, work hours will be set to start from 8:45AM to 4:45PM with no lunch break for everyday except Saturday and Sunday. In addition, once the script is completed, a screenshot of the result will be saved along with the script.
+
+## Next steps/ideas
+* Instead of having the default time everyday, user should have the ability to customized their time for every single day.
+* Added the ability to promote user input for their username and password to improve the security.
