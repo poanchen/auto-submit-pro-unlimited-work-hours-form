@@ -15,13 +15,21 @@ cd auto-submit-pro-unlimited-work-hours-form
 ## Usage
 
 ```
-casperjs script.js yourUsername yourPassword
+casperjs script.js username password
 ```
 
 Or, to enable debugging mode
 
 ```
-casperjs script.js yourUsername yourPassword --g
+casperjs script.js username password --g
+```
+
+## Cron jobs
+
+```sh
+# Runs `script.js` on every friday at 3:00PM.
+0 15 * * 5 sudo casperjs /path/to/script.js username password --g >
+/path/to/auto-submit-pro-unlimited-work-hours-form.log
 ```
 
 ## Note
