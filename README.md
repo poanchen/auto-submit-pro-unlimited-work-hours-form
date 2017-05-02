@@ -54,8 +54,14 @@ casperjs script.js --g
 ## Cron jobs
 
 ```sh
-# Runs `script.js` on every friday at 3:00PM and send an email to the user.
+# Runs `script.js` on every friday at 3:00PM and send an email to the user. (pass username and password as 
+# parameter)
 0 15 * * 5 sudo casperjs /path/to/script.js username password --g > 
+/path/to/auto-submit-pro-unlimited-work-hours-form.log; python /path/to/sendEmail.py >> 
+/path/to/auto-submit-pro-unlimited-work-hours-form.log
+
+# Runs `script.js` on every friday at 3:00PM and send an email to the user. (use environment variables)
+0 15 * * 5 sudo casperjs /path/to/script.js --g > 
 /path/to/auto-submit-pro-unlimited-work-hours-form.log; python /path/to/sendEmail.py >> 
 /path/to/auto-submit-pro-unlimited-work-hours-form.log
 ```
