@@ -29,7 +29,7 @@ Or, to enable debugging mode
 casperjs script.js username password --g
 ```
 
-Or you can set the environment variables, like this
+Another way to set your username and password is to use environment variables, like this
 
 ```
 # used in `script.js`
@@ -37,9 +37,7 @@ PROUNLIMITED_USERNAME=admin@example.com
 PROUNLIMITED_PASSWORD=password
 ```
 
-# If you need help setting up the environment variables, links below should help you.
-# For Windows, go to [here](https://superuser.com/questions/949560/).how-do-i-set-system-environment-variables-in-windows-10
-# For Mac OSX, go to [here](https://stackoverflow.com/questions/7501678/set-environment-variables-on-mac-os-x-lion).
+If you need help setting up the environment variables, links here should help you. [Windows](https://superuser.com/questions/949560/how-do-i-set-system-environment-variables-in-windows-10), [Mac OSX](https://stackoverflow.com/questions/7501678/set-environment-variables-on-mac-os-x-lion), and [Linux](https://www.cyberciti.biz/faq/set-environment-variable-linux/).
 
 Now, with the environment variables set up, you may run the script like this,
 
