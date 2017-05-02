@@ -1,31 +1,36 @@
 var casper = require('casper').create();
+var env    = require('system').env;
 
 // make sure to turn on the debugger if the user wants them
 if (casper.cli.get('g')) {
   casper.options.verbose = true;
   casper.options.logLevel = 'debug';
+
+  // dev mode to broadcast the console.log error message
+  casper.on('remote.message', function(msg) {
+    this.echo("remote message caught: " + msg);
+  });
 }
 
-// dev mode to broadcast the console.log error message
-casper.on('remote.message', function(msg) {
-  this.echo("remote message caught: " + msg);
-});
-
-var username, password, defaultWorkHours = true;
+var username = env['PROUNLIMITED_USERNAME'];
+var password = env['PROUNLIMITED_PASSWORD'];
+var defaultWorkHours = true;
 
 if (casper.cli.has(0)) {
   username = casper.cli.get(0);
-  if (casper.cli.has(1)) {
-    password = casper.cli.get(1);
-    if (casper.cli.has(2)) {
-      // seems like user would like to have customized work hours
-      defaultWorkHours = false;
-    }
-  } else {
-    casper.echo("No password passed, aborting...").exit();
-  }
-} else {
+} else if (username == null) {
   casper.echo("No username passed, aborting...").exit();
+}
+
+if (casper.cli.has(1)) {
+  password = casper.cli.get(1);
+} else if (password == null) {
+  casper.echo("No password passed, aborting...").exit();
+}
+
+if (casper.cli.has(2)) {
+  // seems like user would like to have customized work hours
+  defaultWorkHours = false;
 }
 
 casper.start("https://prowand.pro-unlimited.com/login.html");

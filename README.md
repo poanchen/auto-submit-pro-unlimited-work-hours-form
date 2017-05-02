@@ -1,18 +1,23 @@
 # auto-submit-pro-unlimited-work-hours-form
+
 Custom script to automatically submit the pro-unlimited work hours form.
 
 ## Why is this useful?
+
 Filling out the work hours form can be a pain in the ass. A way to automate this would be really helpful. This script will do all the hard work for us.
 
 ## Installation
 
 CasperJS can be installed on Mac OSX, Windows and most Linuxes. Please head over [here](http://docs.casperjs.org/en/latest/installation.html) to install CasperJS.
+
 ```
 git clone https://github.com/poanchen/auto-submit-pro-unlimited-work-hours-form.git
 cd auto-submit-pro-unlimited-work-hours-form
 ```
 
 ## Usage
+
+You can pass your username and password as parameter when you run the script, like this
 
 ```
 casperjs script.js username password
@@ -22,6 +27,30 @@ Or, to enable debugging mode
 
 ```
 casperjs script.js username password --g
+```
+
+Or you can set the environment variables, like this
+
+```
+# used in `script.js`
+PROUNLIMITED_USERNAME=admin@example.com
+PROUNLIMITED_PASSWORD=password
+```
+
+# If you need help setting up the environment variables, links below should help you.
+# For Windows, go to [here](https://superuser.com/questions/949560/).how-do-i-set-system-environment-variables-in-windows-10
+# For Mac OSX, go to [here](https://stackoverflow.com/questions/7501678/set-environment-variables-on-mac-os-x-lion).
+
+Now, with the environment variables set up, you may run the script like this,
+
+```
+casperjs script.js
+```
+
+Or, to enable debugging mode
+
+```
+casperjs script.js --g
 ```
 
 ## Cron jobs
