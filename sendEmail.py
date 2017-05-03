@@ -1,7 +1,18 @@
 import smtplib
+import os
 
-sender_gmail = 'sender_gmail'
-sender_gmail_password = 'sender_gmail_password'
+try:
+  sender_gmail = os.environ['GMAIL_USERNAME']
+except:
+  print "No gmail username passed, aborting..."
+  quit()
+
+try:
+  sender_gmail_password = os.environ['GMAIL_PASSWORD']
+except:
+  print "No gmail password passed, aborting..."
+  quit()
+
 receiver_email = 'receiver_email'
 receiver_name = 'receiver_name'
 

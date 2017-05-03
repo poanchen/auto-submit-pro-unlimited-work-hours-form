@@ -35,6 +35,10 @@ Another way to set your username and password is to use environment variables, l
 # used in `script.js`
 PROUNLIMITED_USERNAME=admin@example.com
 PROUNLIMITED_PASSWORD=password
+
+# used in `sendEmail.py`
+GMAIL_USERNAME=example@gmail.com
+GMAIL_PASSWORD=password
 ```
 
 If you need help setting up the environment variables, links here should help you. [Windows](https://superuser.com/questions/949560/how-do-i-set-system-environment-variables-in-windows-10), [Mac OSX](https://stackoverflow.com/questions/7501678/set-environment-variables-on-mac-os-x-lion), and [Linux](https://www.cyberciti.biz/faq/set-environment-variable-linux/).
@@ -54,8 +58,8 @@ casperjs script.js --g
 ## Cron jobs
 
 ```sh
-# Runs `script.js` on every friday at 3:00PM and send an email to the user. (pass username and password as 
-# parameter)
+# Runs `script.js` on every friday at 3:00PM and send an email to the user. (pass username and password 
+# as parameter)
 0 15 * * 5 sudo casperjs /path/to/script.js username password --g > 
 /path/to/auto-submit-pro-unlimited-work-hours-form.log; python /path/to/sendEmail.py >> 
 /path/to/auto-submit-pro-unlimited-work-hours-form.log
