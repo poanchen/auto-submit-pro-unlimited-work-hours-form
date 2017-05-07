@@ -75,4 +75,3 @@ In default, work hours will be set to start from 8:45AM to 4:45PM with no lunch 
 
 ## Next steps/ideas
 * Instead of having the default time everyday, user should have the ability to customized their time for every single day.
-* Added the ability to promote user input for their username and password to improve the security.
