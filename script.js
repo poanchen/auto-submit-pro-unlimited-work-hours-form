@@ -41,7 +41,7 @@ casper.waitForSelector('form[method="post"]', function() {
     'input[name="username"]': username,
     'input[name="password"]': password
   }, true);
-}, function usernameOrPasswordSeemsToBeInvalid() {
+}, function proUnlimitedWebsiteIsNotAvailable() {
   this.echo("pro-unlimited website is not available, aborting...").exit();
 });
 
