@@ -1,5 +1,6 @@
 var casper = require('casper').create();
 var env    = require('system').env;
+var fs     = require('fs');
 
 // make sure to turn on the debugger if the user wants them
 if (casper.cli.get('g')) {
@@ -33,6 +34,21 @@ if (casper.cli.get('password')) {
 if (casper.cli.get('file')) {
   // seems like user would like to have customized work hours
   defaultWorkHours = false;
+
+  var fileContents = fs.read(casper.cli.get('file')).split('\n');
+  var timeInLines = [];
+
+  for (var i = 0; i < fileContents.length; i++) {
+    var line = fileContents[i].split(',');
+    timeInLines.push({
+      MS: line[0],
+      ME: line[1],
+      LS: line[1],
+      LE: line[2],
+      AS: line[2],
+      AE: line[3]
+    });
+  }
 }
 
 casper.start("https://prowand.pro-unlimited.com/login.html");
