@@ -15,7 +15,6 @@ if (casper.cli.get('g')) {
 
 var username = env['PROUNLIMITED_USERNAME'];
 var password = env['PROUNLIMITED_PASSWORD'];
-var defaultWorkHours = true;
 
 if (casper.cli.get('username')) {
   username = casper.cli.get('username');
@@ -33,8 +32,6 @@ if (casper.cli.get('password')) {
 
 if (casper.cli.get('file')) {
   // seems like user would like to have customized work hours
-  defaultWorkHours = false;
-
   var fileContents = fs.read(casper.cli.get('file')).split('\n');
   var timeInLines = [];
 
@@ -89,7 +86,7 @@ casper.waitForSelector('select[id="dateRangeString"]', function() {
 
 casper.then(function() {
   this.waitForUrl(/cntrl_time_create_edit_hourly-4\.html/, function() {
-    if (defaultWorkHours) {
+    if (casper.cli.get('file') == undefined) {
       var workHours = {};
       for (var i = 0; i < 5; i++) {
         workHours['select[id="billingDetailItems' + i + '.billingTimeSpans0.startHourM"]'] = '8';
