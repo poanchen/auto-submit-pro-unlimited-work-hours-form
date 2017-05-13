@@ -16,19 +16,21 @@ var username = env['PROUNLIMITED_USERNAME'];
 var password = env['PROUNLIMITED_PASSWORD'];
 var defaultWorkHours = true;
 
-if (casper.cli.has(0)) {
-  username = casper.cli.get(0);
+if (casper.cli.get('username')) {
+  username = casper.cli.get('username');
 } else if (username == null) {
-  casper.echo("No username passed, aborting...").exit();
+  casper.echo("No username passed, aborting...");
+  this.exit();
 }
 
-if (casper.cli.has(1)) {
-  password = casper.cli.get(1);
+if (casper.cli.get('password')) {
+  password = casper.cli.get('password');
 } else if (password == null) {
-  casper.echo("No password passed, aborting...").exit();
+  casper.echo("No password passed, aborting...");
+  this.exit();
 }
 
-if (casper.cli.has(2)) {
+if (casper.cli.get('file')) {
   // seems like user would like to have customized work hours
   defaultWorkHours = false;
 }
