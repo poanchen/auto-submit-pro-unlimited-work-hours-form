@@ -30,24 +30,6 @@ if (casper.cli.get('password')) {
   this.exit();
 }
 
-if (casper.cli.get('file')) {
-  // seems like user would like to have customized work hours
-  var fileContents = fs.read(casper.cli.get('file')).split('\n');
-  var timeInLines = [];
-
-  for (var i = 0; i < fileContents.length; i++) {
-    var line = fileContents[i].split(',');
-    timeInLines.push({
-      MS: line[0],
-      ME: line[1],
-      LS: line[1],
-      LE: line[2],
-      AS: line[2],
-      AE: line[3]
-    });
-  }
-}
-
 casper.start("https://prowand.pro-unlimited.com/login.html");
 
 // fill out the login form
@@ -99,17 +81,6 @@ casper.then(function() {
       }
       // fill out the edit work hours form
       this.fillSelectors('form[method="post"]', workHours, false);
-    } else {
-      // this is for customized work hours
-      // this.evaluate(function() {
-      //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.startHourM"]').selectedIndex = 8;
-      //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.startMinute"]').selectedIndex = 45;
-      //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.startMeridiem"]').selectedIndex = 1;
-      //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.endHourM"]').selectedIndex = 4;
-      //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.endMinute"]').selectedIndex = 45;
-      //   document.querySelector('select[id="billingDetailItems4.billingTimeSpans0.endMeridiem"]').selectedIndex = 2;
-      //   document.querySelector('input[id="billingDetailItems4.noBreakTaken1"]').checked = true;
-      // });
     }
 
     // submit the edit work hours form
