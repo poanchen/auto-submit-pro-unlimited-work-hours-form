@@ -15,6 +15,9 @@ git clone https://github.com/poanchen/auto-submit-pro-unlimited-work-hours-form.
 cd auto-submit-pro-unlimited-work-hours-form
 ```
 
+## Environment
+Tested on both Windows 10 and OS X 10.11 El Capitan.
+
 ## Usage
 
 You can pass your username and password as parameter when you run the script, like this
