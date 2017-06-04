@@ -8,12 +8,7 @@ Filling out the work hours form can be a pain in the ass. A way to automate this
 
 ## Installation
 
-CasperJS can be installed on Mac OSX, Windows and most Linuxes. Please head over [here](http://docs.casperjs.org/en/latest/installation.html) to install CasperJS.
-
-```
-git clone https://github.com/poanchen/auto-submit-pro-unlimited-work-hours-form.git
-cd auto-submit-pro-unlimited-work-hours-form
-```
+CasperJS can be installed on Mac OSX, Windows and most Linuxes. Please head over [here](http://docs.casperjs.org/en/latest/installation.html) to install CasperJS. The source code are provided in two format (zip and tar.gz), please download the [files](https://github.com/poanchen/auto-submit-pro-unlimited-work-hours-form/releases) to your computer to start your automated journey.
 
 ## Environment
 Tested on both Windows 10 and OS X 10.11 El Capitan.
