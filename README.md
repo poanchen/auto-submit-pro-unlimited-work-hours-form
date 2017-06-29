@@ -1,6 +1,6 @@
 # auto-submit-pro-unlimited-work-hours-form
 
-Custom script to automatically submit the pro-unlimited work hours form.
+Custom script to automatically submit the pro-unlimited work hours form. (At [here](https://www.quora.com/What-software-or-script-have-you-created-that-made-a-difference-to-your-co-workers), I also briefly talked about how this script will make a difference to my co-workers in a good way)
 
 ## Why is this useful?
 
