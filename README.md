@@ -1,17 +1,17 @@
 # auto-submit-pro-unlimited-work-hours-form
 
-Custom script to automatically submit the pro-unlimited work hours form. (At [here](https://www.quora.com/What-software-or-script-have-you-created-that-made-a-difference-to-your-co-workers), I also briefly talked about how this script will make a difference to my co-workers in a good way)
+A custom script that will automate the process of filling out and submission of the pro-unlimited work hours form. (In [here](https://www.quora.com/What-software-or-script-have-you-created-that-made-a-difference-to-your-co-workers), I briefly talked about how this script will save my co-workers ~130 minutes of their time every month)
 
 ## Why is this useful?
 
-Filling out the work hours form can be a pain in the ass. A way to automate this would be really helpful. This script will do all the hard work for us.
+Filling out the work hours form can be a pain in the ass as it is very repetitive. A way to automate this would be really helpful (As a programmer, I am always looking for a way to automate the repetitive tasks). This script will do all the hard/repetitive/hideous work for us.
 
 ## Installation
 
 CasperJS can be installed on Mac OSX, Windows and most Linuxes. Please head over [here](http://docs.casperjs.org/en/latest/installation.html) to install CasperJS. The source code are provided in two format (zip and tar.gz), please download the [files](https://github.com/poanchen/auto-submit-pro-unlimited-work-hours-form/releases) to your computer to start your automated journey.
 
 ## Environment
-Tested on both Windows 10 and OS X 10.11 El Capitan.
+Tested on Windows 10, OS X 10.11 El Capitan, and Ubuntu 14.04.X LTS Server.
 
 ## Usage
 
@@ -67,6 +67,7 @@ casperjs script.js --g
 /path/to/auto-submit-pro-unlimited-work-hours-form.log; python /path/to/sendEmail.py >> 
 /path/to/auto-submit-pro-unlimited-work-hours-form.log
 ```
+Hint: Use command 'crontab -e' to modify your cron jobs.
 
 ## Note
 In default, work hours will be set to start from 8:45AM to 4:45PM with no lunch break for everyday except Saturday and Sunday. In addition, once the script is completed, a screenshot of the result will be saved along with the script.
