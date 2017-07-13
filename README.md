@@ -1,6 +1,6 @@
 # auto-submit-pro-unlimited-work-hours-form
 
-A custom script that will automate the process of filling out and submission of the pro-unlimited WAND work hours form. (In [here](https://www.quora.com/What-software-or-script-have-you-created-that-made-a-difference-to-your-co-workers), I briefly talked about how this script will save my co-workers ~130 minutes of their time every month)
+A custom script that will automate the process of filling out and submission of the pro-unlimited WAND work hours form. (In [here](https://www.quora.com/What-software-or-script-have-you-created-that-made-a-difference-to-your-co-workers/answer/PoAn-Baron-Chen-1), I briefly talked about how this script will save my co-workers ~130 minutes of their time every month)
 
 ## Why is this useful?
 
