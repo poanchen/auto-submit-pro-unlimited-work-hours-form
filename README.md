@@ -76,3 +76,4 @@ In default, work hours will be set to start from 8:45AM to 4:45PM with no lunch 
 * Instead of having the default time everyday, user should have the ability to customized their time for every single day.
 * Ability to skip statutory holidays for Canada and USA. (statutory holidays should be getting from a API endpoint)
 * Ability to skip a specific days or weeks. (useful for company-wide holidays with no pay)
+* Ability to select Req# instead of the default one (first one) using paramter like --req=123456789.
