@@ -20,14 +20,14 @@ if (casper.cli.get('username')) {
   username = casper.cli.get('username');
 } else if (username == null) {
   casper.echo("No username passed, aborting...");
-  this.exit();
+  casper.exit();
 }
 
 if (casper.cli.get('password')) {
   password = casper.cli.get('password');
 } else if (password == null) {
   casper.echo("No password passed, aborting...");
-  this.exit();
+  casper.exit();
 }
 
 casper.start("https://prowand.pro-unlimited.com/login.html");
