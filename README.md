@@ -6,6 +6,8 @@ A custom script that will automate the process of filling out and submission of 
 
 Filling out the work hours form can be a pain in the ass as it is very repetitive. A way to automate this would be really helpful (As a programmer, I am always looking for a way to automate the repetitive tasks). This script will do all the hard/repetitive/hideous work for us.
 
+# Getting Started
+
 ## Installation
 
 CasperJS can be installed on Mac OSX, Windows and most Linuxes. Please head over [here](http://docs.casperjs.org/en/latest/installation.html) to install CasperJS. The source code are provided in two format (zip and tar.gz), please download the [files](https://github.com/poanchen/auto-submit-pro-unlimited-work-hours-form/releases) to your computer to start your automated journey.
